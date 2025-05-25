@@ -3,7 +3,6 @@ package com.example.todolistjava;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.time.LocalDateTime;
 
 @Entity
@@ -45,11 +44,5 @@ public class Todos {
     protected void onUpdate() {
         this.editDate = LocalDateTime.now();
     }
-
-    // @Column(name = "...") -> To match snake_case column names in MySQL
-    // nullable = false, length -> Matches SQL column constraints (NOT NULL, VARCHAR(x))
-    // columnDefinition = "TEXT" -> Ensures MySQL stores large content correctly
-    // @PrePersist, @PreUpdate -> Lets Java handle timestamp logic like DEFAULT CURRENT_TIMESTAMP ON UPDATE
-    // @Getters & @Setters : Lombok (Needed for JPA and JavaBeans standards)
 
 }
